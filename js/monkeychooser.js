@@ -16,10 +16,10 @@ function createPicsHolder() {
 }
 
 function createAapImage() {
-    pictureHolder = document.getElementsByClassName("picture-holder");
-    for(var i = 0; i < pictureHolder.length; i++ ){
+    pictureHolders = document.getElementsByClassName("picture-holder");
+    for(var i = 0; i < pictureHolders.length; i++ ){
         favoriet = document.createElement("div");
-        favoriet.className = favoriet;
+        favoriet.className = "favoriet";
         favoriet.id = "favoriet_" + (i+1);
         //maak een img
         aapPlaatje = document.createElement("img");
@@ -28,17 +28,23 @@ function createAapImage() {
         aapPlaatje.addEventListener("click", function () {
             maakfavoriet(this.id);
         });
-        pictureHolder[i].appendChild(favoriet);
-        pictureHolder[i].appendChild(aapPlaatje);
+        pictureHolders[i].appendChild(favoriet);
+        pictureHolders[i].appendChild(aapPlaatje);
+        }
     }
 
     function maakfavoriet(id) {
         console.log("maak mij Favoriet! het gaat om aap..." + id);
+        notsofavoriet = document.getElementsByClassName("favoriet");
+        for(var i = 0; i < notsofavoriet.length; i++){
+            notsofavoriet[i].style.backgroundImage = "none";
+        }
         favoriet = document.getElementById("favoriet_" + id);
-        favoriet.style.backgroundImage = "url('img/heart_PNG706.png')";
+        favoriet.style.backgroundImage = "url('img/heart.jpg')";
+
     }
 
-}
+
 
 //picsHolder
 //picsHolder bevat een plaatje van een aap en een favorite symbool(hartje)
